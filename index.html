@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Panamá</title>
+    <link rel="stylesheet" href="paquita.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EVENTOS PANAMÁ</h1>
+            <h2>Sistema de Venta de Boletos</h2>
+            <p class="venue-info">Concierto en el Estadio Roberto Durán</p>
+        </header>
+
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showSection('ventas')">
+                Venta de Boletos
+            </button>
+            <button class="nav-btn" onclick="showSection('estadisticas')">
+                Estadísticas
+            </button>
+        </div>
+
+        <div id="ventas-section" class="section active">
+            <p class="CHICLE">Categorías para el Evento</p>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3>VIP</h3>
+                    <div class="price">$50.00</div>
+                    <p>Acceso premium con asientos preferenciales</p>
+                </div>
+                <div class="category-card">
+                    <h3>Butacas</h3>
+                    <div class="price">$30.00</div>
+                    <p>Asientos numerados con excelente vista</p>
+                </div>
+                <div class="category-card">
+                    <h3>General</h3>
+                    <div class="price">$15.00</div>
+                    <p>Acceso general al evento</p>
+                </div>
+            </div>
+
+            <div class="sales-form">
+                <h3>Registrar Venta de Boletos</h3>
+                <div id="alertMessage"></div>
+                
+                <form id="ticketForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="quantity">Cantidad de Boletos:</label>
+                            <input type="number" id="quantity" min="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Categoría:</label>
+                            <select id="category" required>
+                                <option value="">Seleccione una categoría</option>
+                                <option value="VIP">VIP</option>
+                                <option value="Butacas">Butacas</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">Registrar Venta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="estadisticas-section" class="section">
+            <div class="summary-section">
+                <h3>Resumen de Ventas por Categoría</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>VIP</h4>
+                        <div class="number" id="vipTickets">0</div>
+                        <div class="label">Boletos Vendidos</div>
+                        <div class="number" style="font-size: 1.5em; margin-top: 10px;" id="vipTotal">$0.00</div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h4>Butacas</h4>
+                        <div class="number" id="butacasTickets">0</div>
+                        <div class="label">Boletos Vendidos</div>
+                        <div class="number" style="font-size: 1.5em; margin-top: 10px;" id="butacasTotal">$0.00</div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h4>General</h4>
+                        <div class="number" id="generalTickets">0</div>
+                        <div class="label">Boletos Vendidos</div>
+                        <div class="number" style="font-size: 1.5em; margin-top: 10px;" id="generalTotal">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="total-general">
+                    <h3>TOTAL GENERAL</h3>
+                    <div>
+                        <div class="amount" id="totalTickets">0</div>
+                        <div style="font-size: 0.9em; margin: 10px 0; color: #b0b0b0;">Boletos Vendidos</div>
+                        <div class="amount" id="totalRevenue">$0.00</div>
+                        <div style="font-size: 0.9em; color: #b0b0b0;">Ingresos Totales</div>
+                    </div>
+                </div>
+
+                <div class="sales-table">
+                    <h3>Historial de Ventas</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Categoría</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unit.</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesTableBody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: #999;">
+                                    No hay ventas registradas aún
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="paquito.js"></script>
+</body>
+</html>
